@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <AzureFunctionsVersion>v4</AzureFunctionsVersion>
+    <DisableGclm>true</DisableGclm>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Fonts\ipag.ttf" />
+    <None Remove="Invoice_bluegray.rdlx" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Fonts\ipag.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Invoice_bluegray.rdlx" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MESCIUS.ActiveReports.Export.Pdf.ja" Version="18.1.1" />
+    <PackageReference Include="MESCIUS.ActiveReports.ja" Version="18.1.1" />
+    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.OpenApi" Version="1.5.1" />
+    <PackageReference Include="Microsoft.CodeAnalysis.VisualBasic" Version="4.5.0" />
+    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.5.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="host.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="local.settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\ServiceDependencies\" />
+  </ItemGroup>
+</Project>
